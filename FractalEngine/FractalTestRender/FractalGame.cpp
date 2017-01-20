@@ -26,16 +26,11 @@ MyGame::Game::~Game()
 /* - 프로그램 실행시 처음 호출되는 함수 | First run - */
 void MyGame::Game::Run()
 {
-	std::thread debugThread(&Fractal::Debug::ConsoleDebug, mp_Debug); // 디버깅용(콘솔) 쓰레드 열기 | Open Debug thread
+	std::thread debugThread(&Fractal::Debug::ConsoleOpen, mp_Debug); // 디버깅용(콘솔) 쓰레드 열기 | Open Debug thread
 
 	InitSystems(); // 시스템 초기화 | System Initialization
 
 	mp_Debug->ConsoleGLInfo(); // 그래픽카드 정보 출력 | Show graphics card info
-
-	// 배경 음악 재생
-	Fractal::AudioMusic bgMusic = m_AudioEngine.LoadAudioMusic(programPath + "\\Sound\\StarWarsMainTheme.mp3"); // 음악파일 넣기
-	bgMusic.Volume(20); // 볼륨 조정 (최대 128)
-	bgMusic.Play(-1); // 무한 모드로 재생
 
 	GameLoop(); // 게임 루프 돌리기
 
@@ -58,15 +53,6 @@ void MyGame::Game::InitSystems()
 	// 스프라이트 배치 초기화 | Sprite Batch initialization
 	m_SpriteBatch.Init();
 	m_HudSpriteBatch.Init();
-
-	// 트루타입 폰트 초기화
-	std::string hudFontFilePath; // 폰트 파일 위치
-	hudFontFilePath.insert(0, programPath); // 프로그램 경로 추가
-	hudFontFilePath.insert(hudFontFilePath.length(), "\\Font\\NanumSquareR.ttf"); // 해당 폰트 파일 경로 추가
-	m_TTFont.Init(hudFontFilePath, 64); // 폰트 초기화
-
-	// 오디오 엔진 초기화
-	m_AudioEngine.Init();
 
 	// 파티클 배치 초기화
 	std::string starParicleFilePath; // 파티클 이미지 파일 위치
@@ -130,8 +116,8 @@ void MyGame::Game::InitShaders()
 	fragmentShaderFilePath.insert(fragmentShaderFilePath.length(), "\\Shader\\colorShading.frag");
 
 	// 셰이더 파일 위치 출력
-	std::cout << "[Console] Vertex shader file path : " << std::endl << vertexShaderFilePath << std::endl;
-	std::cout << "[Console] Fragment shader file path : " << std::endl << fragmentShaderFilePath << std::endl;
+	Fractal::Debug::GetInstance()->WriteConsoleMessage("Vertex shader file path : \n" + vertexShaderFilePath);
+	Fractal::Debug::GetInstance()->WriteConsoleMessage("Fragment shader file path : \n" + fragmentShaderFilePath);
 
 	m_ColorShaderProgram.CompileShader(vertexShaderFilePath, fragmentShaderFilePath); // 셰이더 컴파일
 	m_ColorShaderProgram.AddAttribute("vertexPosition"); // 버텍스 포지션 어트리뷰트 추가
@@ -197,7 +183,7 @@ void MyGame::Game::ProcessInput()
 		{
 		case SDL_QUIT: // 닫기 버튼이 눌렸을때
 			gameState = FractalState::EXIT;
-			std::cout << "[Console] Program is shutting down..." << std::endl;
+			Fractal::Debug::GetInstance()->WriteConsoleMessage("Program is shutting down...");
 			Sleep(1000); // 1초간 잠시 대기(시스템 안정화)
 			exit(0); // 프로그램 정상 종료
 			break;
@@ -374,17 +360,7 @@ void MyGame::Game::DrawGame()
 /* - HUD 화면을 그리는 함수 | Draw HUD like Fonts & UI & etc... - */
 void MyGame::Game::DrawHud()
 {
-	// HUD 에 표시될 텍스쳐 작성
-	static std::string hudTextBuffer = "2016 안녕하세요!";
-	m_TTFont.TextWrite(hudTextBuffer);
 
-	// HUD 에 들어갈 텍스트 그려서 배치에 저장
-	m_HudSpriteBatch.Start();
-	m_TTFont.TextShow(m_HudSpriteBatch, glm::vec2(-150.0f, -90.0f), glm::vec2(350.0f, 50.0f), Fractal::Vertex::ColorRGBA8(0, 255, 255, 255));
-	m_HudSpriteBatch.End();
-
-	// 배치 랜더
-	m_HudSpriteBatch.RenderBatch();
 }
 
 

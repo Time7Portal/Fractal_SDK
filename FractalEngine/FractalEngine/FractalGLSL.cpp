@@ -114,7 +114,9 @@ void Fractal::GLSLProgram::CompileShaderCore(const std::string &filePath, GLuint
 		glDeleteShader(shaderID);
 
 		// 오류 발생시 내용 출력
-		std::cout << filePath << std::endl;
+		std::wstring w_FilePath = Fractal::Debug::GetInstance()->ChangeToWstring(filePath);
+
+		std::wcout << w_FilePath << std::endl;
 		std::cout << &errorLog[0] << std::endl;
 		Fractal::Debug::GetInstance()->ConsoleError("The shader failed to compile!");
 	}

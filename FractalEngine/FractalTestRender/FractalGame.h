@@ -16,10 +16,8 @@
 #include <FractalEngine\FractalResourceManager.h>
 #include <FractalEngine\FractalSprite.h>
 #include <FractalEngine\FractalSpriteBatch.h>
-#include <FractalEngine\FractalSpriteFont.h>
 #include <FractalEngine\FractalGLTexture.h>
 #include <FractalEngine\FractalBullet.h>
-#include <FractalEngine\FractalAudio.h>
 #include <FractalEngine\FractalParticle.h>
 #include <FractalEngine\FractalPhysicsBox.h>
 
@@ -68,12 +66,8 @@ namespace MyGame
 
 		Fractal::InputManager m_InputManager; // 입력 관리자 정의 | Input Manager Definition
 
-		Fractal::AudioManager m_AudioEngine; // 오디오 정의
-
 		Fractal::ParticleManager m_ParticleManager; // 파티클 관리자 정의
 		Fractal::ParticleBatch* mp_StarParicleBatch; // 파티클 배치 정의
-
-		Fractal::SpriteFont m_TTFont; // 트루타입 폰트 정의
 
 		std::vector<Fractal::Bullet> mv_Bullets; // 총알 정의 | Bullets Definition
 

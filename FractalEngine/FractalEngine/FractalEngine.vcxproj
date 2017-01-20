@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FractalAudio.cpp" />
     <ClCompile Include="FractalBullet.cpp" />
     <ClCompile Include="FractalCamera2D.cpp" />
     <ClCompile Include="FractalDebug.cpp" />
@@ -32,13 +31,11 @@
     <ClCompile Include="FractalResourceManager.cpp" />
     <ClCompile Include="FractalSprite.cpp" />
     <ClCompile Include="FractalSpriteBatch.cpp" />
-    <ClCompile Include="FractalSpriteFont.cpp" />
     <ClCompile Include="FractalTextureCache.cpp" />
     <ClCompile Include="FractalWindow.cpp" />
     <ClCompile Include="FractalPicoPNG.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FractalAudio.h" />
     <ClInclude Include="FractalBullet.h" />
     <ClInclude Include="FractalCamera2D.h" />
     <ClInclude Include="FractalDebug.h" />
@@ -52,7 +49,6 @@
     <ClInclude Include="FractalResourceManager.h" />
     <ClInclude Include="FractalSprite.h" />
     <ClInclude Include="FractalSpriteBatch.h" />
-    <ClInclude Include="FractalSpriteFont.h" />
     <ClInclude Include="FractalTextureCache.h" />
     <ClInclude Include="FractalVertex.h" />
     <ClInclude Include="FractalWindow.h" />
@@ -60,14 +56,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8073F91B-8F62-4D96-85AB-8C5F953FAD5B}</ProjectGuid>
-    <SccProjectName>
-    </SccProjectName>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>FractalEngine</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
@@ -95,7 +87,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -123,7 +115,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)Library\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Library\MIXER\;$(SolutionDir)Library\SDL\;$(SolutionDir)Library\TTF\;$(SolutionDir)Library\GL\;$(SolutionDir)Library\GLM\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Library\SDL\;$(SolutionDir)Library\GL\;$(SolutionDir)Library\GLM\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)Library\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Library\SDL\;$(SolutionDir)Library\GL\;$(SolutionDir)Library\GLM\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

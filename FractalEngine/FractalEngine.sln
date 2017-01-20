@@ -36,12 +36,15 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://fractalsoft.visualstudio.com/
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = FractalTestRender\\FractalTestRender.vcxproj
 		SccProjectName1 = FractalTestRender
 		SccLocalPath1 = FractalTestRender
+		SccProjectUniqueName2 = FractalEngine\\FractalEngine.vcxproj
+		SccProjectName2 = FractalEngine
+		SccLocalPath2 = FractalEngine
 	EndGlobalSection
 EndGlobal

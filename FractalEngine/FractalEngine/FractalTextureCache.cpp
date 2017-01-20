@@ -22,7 +22,7 @@ Fractal::GLTexture Fractal::TextureCache::GetTexture(std::string texturePath)
 		GLTexture newTexture = ImageLoader::LoadPNG(texturePath);
 
 		// 캐싱하기 | Insert it into the map
-		std::cout << "[Console] Caching the new texture..." << std::endl;
+		Fractal::Debug::GetInstance()->WriteConsoleMessage("Caching the new texture...");
 		textureMap.insert(make_pair(texturePath, newTexture));
 
 		return newTexture;
@@ -30,7 +30,7 @@ Fractal::GLTexture Fractal::TextureCache::GetTexture(std::string texturePath)
 	else
 	{
 		// 찾은 경우 캐싱된 텍스쳐 반환 | Return the cached texture if that was find.
-		std::cout << "[Console] Loading the cached texture..." << std::endl;
+		Fractal::Debug::GetInstance()->WriteConsoleMessage("Loading the cached texture...");
 
 		return mit->second;
 	}

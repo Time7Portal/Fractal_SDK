@@ -54,12 +54,6 @@
     <ClCompile Include="FractalPicoPNG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FractalSpriteFont.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FractalAudio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FractalParticle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -111,12 +105,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FractalPicoPNG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FractalSpriteFont.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FractalAudio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FractalParticle.h">
